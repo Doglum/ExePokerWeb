@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'playPoker/selectStyle.css' %}">
+<html>
+ <head>
+   <meta charset="UTF-8">
+   <title>ExePoker</title>
+ </head>
+ <body>
+   <h3>Select your AI</h3>
+   <p>
+     There are a variety of AI's you can play against, all perform roughly the
+     same but do so in slightly different ways. You can change the AI you're
+     playing against at any time. If you're not sure which one to pick,
+     ForgetfulAbstract1 should run fastest
+   </p>
+   <form method="post">
+     {% csrf_token %}
+     {% for ai in AIs %}
+     <div class = "buttonDiv">
+       <label for="{{ai.0}}">{{ai.1}}</label>
+       <input id="{{ai.0}}" type="submit" name="AI" value= "{{ai.0}}">
+     </div>
+     {% endfor %}
+   </form>
+
+ </body>
+</html>

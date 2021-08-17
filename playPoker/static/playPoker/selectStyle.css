@@ -1,0 +1,42 @@
+label,input,p,h3{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color:darkslategrey;
+}
+
+p{
+  width:40%;
+}
+
+.buttonDiv{
+  padding-bottom: 2%;
+}
+label{
+  padding-top: 1%;
+  padding-bottom: 1%;
+  width: 40%;
+}
+input{
+  width: 20%;
+  border-radius: 4px;
+  font-size: 16px;
+  padding-top: 0.3%;
+  padding-bottom: 0.3%;
+
+}
+
+#novice{
+  background-color: lightgreen;
+}
+
+#intermediate{
+  background-color: gold;
+}
+
+#experienced{
+  background-color: tomato;
+}

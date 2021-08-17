@@ -1,0 +1,74 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'playPoker/style.css' %}">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>ExePoker</title>
+  </head>
+  <body>
+    <div id= "actionLog">
+      {%for item in log%}
+      <div class = "actionLogItem">{{item}}</div>
+      {%endfor%}
+    </div>
+    <div id="balanceTracker">
+      <p>Your Winnings: {{balance}}</p>
+      <p>No. Rounds: {{rounds}} </p>
+      <p>mbb/g : {{mbbg}} </p>
+      <p><a href="{% url 'skillSelect' %}">Change AI</a></p>
+    </div>
+
+
+    <div id= "pokerTable">
+      <div id="tableCards">
+        <div id = "opponentCards">
+          <ul class = "cardList">
+            <li><img class = "card" src = "{{AICard1}}"></li>
+            <li><img class = "card" src = "{{AICard2}}"></li>
+          </ul>
+        </div>
+        <div class = "betContainer">
+          <img class = "chipCounter" src = "\static\playPoker\Images\chip.png">
+          <div class = "Bet">{{AIBet}}</div>
+        </div>
+        <ul class = "cardList">
+          <li class = "cardOutline"><img class = "card" src = "{{tableCard1}}"></li>
+          <li class = "cardOutline"><img class = "card" src = "{{tableCard2}}"></li>
+          <li class = "cardOutline"><img class = "card" src = "{{tableCard3}}"></li>
+          <li class = "cardOutline"><img class = "card" src = "{{tableCard4}}"></li>
+          <li class = "cardOutline"><img class = "card" src = "{{tableCard5}}"></li>
+        </ul>
+        <div class = "betContainer">
+          <img class = "chipCounter" src = "\static\playPoker\Images\chip.png">
+          <div class = "bet">{{playerBet}}</div>
+        </div>
+      </div>
+    </div>
+    <div id="playerContainer">
+      <form id="actionForm" method = "post">
+        {% csrf_token %}
+        {% if formChoices|length <= 0 %}
+        <input class="actionButton" type="submit" name="choice" value="Next Round">
+        {% endif %}
+        {% if "Call" in formChoices %}
+        <input class="actionButton" type="submit" name="choice" value="Call">
+        {% elif "Check" in formChoices %}
+        <input class="actionButton" type="submit" name="choice" value="Check">
+        {% endif %}
+        {% if "Fold" in formChoices %}
+        <input class="actionButton" type="submit" name="choice" value="Fold">
+        {% endif %}
+        {% if "Raise" in formChoices %}
+        <input class="actionButton" type="submit" name="choice" value="Raise">
+        {% endif %}
+      </form>
+      <div id = "playerCards">
+        <ul class = "cardList">
+          <li><img class = "card" src = "{{playerCard1}}"></li>
+          <li><img class = "card" src = "{{playerCard2}}"></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

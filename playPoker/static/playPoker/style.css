@@ -1,0 +1,137 @@
+#pokerTable {
+  background-color: DarkGreen;
+  padding: 20px;
+  width: 70%;
+  height:50%;
+  border-radius: 300px;
+  border-style: solid;
+  border-color: SaddleBrown;
+  border-width: 10px;
+  margin: auto;
+  position:relative;
+  z-index: -1;
+}
+
+#tableCards{
+  margin: 0;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  /*nasty, neeeded for chrome to display, breaks vertical centering
+  and a bunch of other stuff, much nicer in ffox if not present */
+  height:100%;
+}
+
+#playerCards{
+  margin: 0;
+  max-height: 10%;
+  text-align: center;
+}
+
+#opponentCards{
+  margin: 0;
+  position: absolute;
+  text-align: right;
+  height: 100%;
+}
+
+#playerContainer{
+  display: inline-block;
+  width: 100%;
+  background-color: grey;
+}
+
+#actionLog{
+  overflow: auto;
+  float:right;
+  padding-right: 0.5%;
+  padding-left: 0.5%;
+  background-color: rgb(211,211,211,0.5);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  width : 20%;
+  height: 20%;
+  display: flex;
+  flex-direction: column-reverse;
+  z-index: 1
+  position:relative;
+}
+
+#balanceTracker{
+  float:left;
+  padding-left: 2%;
+  background-color: rgb(211,211,211,0.5);
+  width : 15%;
+}
+
+#actionForm{
+  position: absolute;
+  width: 38%;
+  height: 30%;
+}
+
+/* *{border:1px solid red;} */
+
+.actionButton{
+  height: 25%;
+  width: 30%;
+}
+
+.actionLogItem{
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border-top: 1px solid black;
+}
+
+.chipCounter{
+  width : 18%;
+  height: 18%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  object-fit: contain;
+}
+
+.betContainer {
+  position: relative;
+  text-align: center;
+}
+
+.card{
+  width: 90%;
+  height: 90%;
+  object-fit:contain;
+}
+
+.cardOutline{
+  border-color: gold;
+  border-width: 3px;
+  border-style: solid;
+}
+
+.cardList{
+  display:inline-block;
+  max-width: 90%;
+  height: 30%;
+  margin:0;
+  padding:0;
+}
+
+.cardList li{
+  display:inline-block;
+  margin:auto;
+  width:15%;
+  height:100%;
+}
+
+.bet{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}

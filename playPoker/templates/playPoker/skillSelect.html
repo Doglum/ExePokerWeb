@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'playPoker/selectStyle.css' %}">
+<html>
+ <head>
+   <meta charset="UTF-8">
+   <title>ExePoker</title>
+ </head>
+ <body>
+   <h3>Welcome to my poker program!</h3>
+   <p>
+     This is a webapp that let's you play against an AI at
+     limit Texas Hold'em poker. No identifiable data is stored,
+     just details about the rounds of the game you play and how well
+     the AI does. To help with assessing the AI against differently skilled
+     players, please state:
+   </p>
+   <h3>How experienced are you with poker?</h3>
+   <p>This won't affect the AI's difficulty</p>
+   <form method="post">
+     {% csrf_token %}
+     <div class = "buttonDiv">
+       <label for="novice">If you have little or no experience of poker</label>
+       <input id="novice" type="submit" name="skill" value= "Novice">
+     </div>
+     <div class = "buttonDiv">
+       <label for="intermediate">If you have played a decent amount of poker</label>
+       <input id="intermediate" type="submit" name="skill" value= "Intermediate">
+     </div>
+     <div class = "buttonDiv">
+       <label for="experienced">If you regularly play poker</label>
+       <input id="experienced" type="submit" name="skill" value= "Experienced">
+     </div>
+   </form>
+ </body>
+</html>
