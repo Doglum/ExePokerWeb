@@ -57,6 +57,18 @@ this. To create a new superuser, use command:
 ```
 5. The project should then be running at http://localhost:8000/playPoker/
 
+### Training the AI
+If you're only interested in the files used for the training process,
+they can be found in [this repository](https://github.com/Doglum/ExePoker).
+To train, you'll need to use the newTrainingDirectory() function in cfr.py  to create
+some new directories to store data or grab existing ones from
+[ExePokerWeb/playPoker/static/playPoker/AI](https://github.com/Doglum/ExePokerWeb/tree/main/playPoker/static/playPoker/AI).
+ForgetfulAbstract1 (bf) generally gives the best results. Running cfr.py will train the files with
+a prompt that lets you set a time period to train for. Files are stored in pickle format,
+at intervals of 1000 iterations. To use the new training files with the web app,
+place the files back in the above directory. There is also a analysis program
+using some modules from the Anaconda package in compare.py.
+
 ### Versions
 - Django 3.1.6
 - Python 3.7
